@@ -1,7 +1,6 @@
 ﻿namespace Procure.BLL
 {
-    public class BaseService
+    public class BaseService : IBaseService
     {
-
     }
 }
