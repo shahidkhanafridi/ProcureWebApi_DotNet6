@@ -7,5 +7,9 @@ namespace Procure.Api.Controllers
     [ApiController]
     public class AccountController : BaseController
     {
+        public AccountController(IConfiguration config, IMapper mapper) : base(config, mapper)
+        {
+
+        }
     }
 }

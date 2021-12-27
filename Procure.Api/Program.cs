@@ -1,11 +1,22 @@
 global using Procure.BLL.Helpers;
+global using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+// Automapper Configuration Begin
+var mapperConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new AutoMappingProfile());
+});
+
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+// Automapper configuration End
+
 builder.Services.MapServices();
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

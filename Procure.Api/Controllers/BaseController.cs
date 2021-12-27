@@ -8,5 +8,12 @@ namespace Procure.Api.Controllers
     [ApiController]
     public class BaseController : ControllerBase
     {
+        protected readonly IConfiguration _config;
+        protected readonly IMapper _mapper;
+        public BaseController(IConfiguration config, IMapper mapper)
+        {
+            _config = config;
+            _mapper = mapper;
+        }
     }
 }
