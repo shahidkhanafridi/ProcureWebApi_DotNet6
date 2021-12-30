@@ -15,6 +15,7 @@ namespace Procure.BLL.Helpers
         {
             services.AddTransient<IBaseService, BaseService>();
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IUnitService, UnitService>();
         }
     }
 }

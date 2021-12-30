@@ -4,7 +4,7 @@ global using Microsoft.Extensions.Configuration;
 global using Dapper;
 global using System.Data;
 global using System.Data.SqlClient;
-
+using Microsoft.AspNetCore.Http;
 
 namespace Procure.BLL
 {
@@ -14,11 +14,13 @@ namespace Procure.BLL
         protected readonly IMapper _mapper;
         protected string _connString = string.Empty;
         protected string _sqlText = string.Empty;
-        public BaseService(IConfiguration config, IMapper mapper)
+        protected readonly IHttpContextAccessor _httpContext;
+        public BaseService(IConfiguration config, IMapper mapper, IHttpContextAccessor httpContext)
         {
             _config = config;
             _mapper = mapper;
             _connString = _config.GetConnectionString("DefaultConn");
+            _httpContext = httpContext;
         }
     }
 }
