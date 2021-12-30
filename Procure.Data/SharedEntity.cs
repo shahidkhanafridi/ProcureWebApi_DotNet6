@@ -1,7 +1,8 @@
 ﻿namespace Procure.Data
 {
-    public class SharedEntity
+    public abstract class SharedEntity
     {
-
+        public DateTime? CreatedOn { get; set; }
+        public DateTime? UpdatedOn { get; set; }
     }
 }

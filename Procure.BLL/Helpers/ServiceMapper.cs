@@ -1,5 +1,5 @@
-﻿using Procure.BLL.Interfaces;
-using Procure.BLL.Services;
+﻿global using Procure.BLL.Interfaces;
+global using Procure.BLL.Services;
 using Microsoft.Extensions.DependencyInjection;
 //using System;
 //using System.Collections.Generic;
