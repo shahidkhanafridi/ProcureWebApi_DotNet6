@@ -68,6 +68,8 @@ namespace Procure.BLL.Services
         public UnitVM? GetUnit(UnitVM model)
         {
             var theUser = _httpContext.HttpContext.Request.Headers["UserName"].ToString();
+            var ctrlName = _httpContext.GetControllerName();
+
             DynamicParameters dParams = new();
             dParams.Add(nameof(model.BranchCode), model.BranchCode);
             dParams.Add(nameof(model.UnitCode), model.UnitCode);

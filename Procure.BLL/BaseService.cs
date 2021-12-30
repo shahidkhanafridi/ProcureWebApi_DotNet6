@@ -4,6 +4,7 @@ global using Microsoft.Extensions.Configuration;
 global using Dapper;
 global using System.Data;
 global using System.Data.SqlClient;
+global using Procure.BLL.Helpers;
 using Microsoft.AspNetCore.Http;
 
 namespace Procure.BLL
