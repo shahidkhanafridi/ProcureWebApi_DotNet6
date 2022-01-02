@@ -67,6 +67,8 @@
     <Folder Include="Security\" />
     <Folder Include="Pur" />
     <Folder Include="Pur\Tables" />
+    <Folder Include="Gen" />
+    <Folder Include="Gen\Tables" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\__EFMigrationsHistory.sql" />
@@ -78,7 +80,6 @@
     <Build Include="dbo\Tables\AspNetUsers.sql" />
     <Build Include="dbo\Tables\AspNetUserTokens.sql" />
     <Build Include="dbo\Tables\Pages.sql" />
-    <Build Include="Inv\Tables\Unit.sql" />
     <Build Include="dbo\Functions\fnTestScalerValues.sql" />
     <Build Include="dbo\Functions\fnTableValued.sql" />
     <Build Include="dbo\Stored Procedures\SP_GetTableProperties.sql" />
@@ -90,5 +91,8 @@
     <Build Include="Security\Permissions.sql" />
     <Build Include="Security\Pur.sql" />
     <Build Include="Pur\Tables\PurchaseOrderMaster.sql" />
+    <Build Include="Security\Gen.sql" />
+    <Build Include="Gen\Tables\Unit.sql" />
+    <Build Include="Inv\Tables\Unit.sql" />
   </ItemGroup>
 </Project>
