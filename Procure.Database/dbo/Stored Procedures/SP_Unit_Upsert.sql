@@ -12,16 +12,16 @@ AS
 BEGIN
 	IF(ISNULL(@UnitCode,'')='')
 	BEGIN
-		set @UnitCode = (Select RIGHT(CONCAT('000',cast(ISNULL(Max(UnitCode),0)+1 as nvarchar)),3) from Inv.Unit)
+		set @UnitCode = (Select RIGHT(CONCAT('000',cast(ISNULL(Max(UnitCode),0)+1 as nvarchar)),3) from Gen.Unit)
 
-		Insert Into Inv.Unit(UnitCode,UnitName,Description,CreatedOn)
+		Insert Into Gen.Unit(UnitCode,UnitName,Description,CreatedOn)
 		Values(@UnitCode,@UnitName,@Description,GETDATE())
 
 		Set @RetVal='Record Successfully Saved';
 	END
 	ELSE
 	BEGIN
-		Update Inv.Unit set UnitName=@UnitName,[Description]=@Description,UpdatedOn=GETDATE()
+		Update Gen.Unit set UnitName=@UnitName,[Description]=@Description,UpdatedOn=GETDATE()
 		Where UnitCode=@UnitCode
 
 		Set @RetVal='Record Successfully Updated';

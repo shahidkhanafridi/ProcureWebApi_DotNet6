@@ -93,6 +93,5 @@
     <Build Include="Pur\Tables\PurchaseOrderMaster.sql" />
     <Build Include="Security\Gen.sql" />
     <Build Include="Gen\Tables\Unit.sql" />
-    <Build Include="Inv\Tables\Unit.sql" />
   </ItemGroup>
 </Project>

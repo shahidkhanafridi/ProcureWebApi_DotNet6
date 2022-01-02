@@ -2,7 +2,7 @@
 AS
 BEGIN
 	Select UnitCode,UnitName,Description,IsActive,CreatedOn,UpdatedOn
-	From Inv.Unit
+	From Gen.Unit
 END
 
 

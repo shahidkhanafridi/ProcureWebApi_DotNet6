@@ -14,7 +14,7 @@ BEGIN Transaction;
 	--Else
 	Begin
 		Select UnitCode,UnitName,Description,IsActive,CreatedOn,UpdatedOn
-		From Inv.Unit
+		From Gen.Unit
 		Where UnitCode=@UnitCode
 
 	Commit Transaction;
