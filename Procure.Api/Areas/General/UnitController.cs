@@ -15,11 +15,11 @@ namespace Procure.Api.Areas.General
         }
 
         [HttpPost]
-        public IActionResult CreateUnit(UnitVM model)
+        public ActionResult<ApiResponse> CreateUnit(UnitVM model)
         {
             try
             {
-                var result = _service.CreateUnit(model);
+                var result = _service.UpsertUnit(model);
                 if (result == null)
                 {
                     throw new Exception("Not found");
@@ -29,7 +29,7 @@ namespace Procure.Api.Areas.General
             }
             catch (Exception ex)
             {
-                _apiResponse = ex.HandleEx(_mapper, ""); //_apiResponse = ResponseHelper.Error(ex.Message);
+                _apiResponse = ex.HandleEx(_mapper, "");
             }
             return Ok(_apiResponse);
         }
@@ -50,7 +50,26 @@ namespace Procure.Api.Areas.General
             }
             catch (Exception ex)
             {
-                _apiResponse = ex.HandleEx(_mapper, "");//ResponseHelper.Error(ex.Message);
+                _apiResponse = ex.HandleEx(_mapper, "");
+            }
+            return Ok(_apiResponse);
+        }
+
+        [HttpGet]
+        public ActionResult<ApiResponse> GetUnits()
+        {
+            try
+            {
+                IEnumerable<UnitVM> result = _service.GetUnits();
+                if (result == null)
+                {
+                    throw new Exception("Not found");
+                }
+                _apiResponse = ResponseHelper.Success(result);
+            }
+            catch (Exception ex)
+            {
+                _apiResponse = ex.HandleEx(_mapper, "");
             }
             return Ok(_apiResponse);
         }

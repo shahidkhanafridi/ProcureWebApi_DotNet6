@@ -8,7 +8,8 @@ namespace Procure.BLL.Interfaces
 {
     public interface IUnitService
     {
-        UnitVM? CreateUnit(UnitVM model);
+        UnitVM? UpsertUnit(UnitVM model);
         UnitVM? GetUnit(UnitVM model);
+        IEnumerable<UnitVM> GetUnits();
     }
 }

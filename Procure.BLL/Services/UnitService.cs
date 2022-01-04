@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,7 @@ namespace Procure.BLL.Services
         {
         }
 
-        public UnitVM? CreateUnit(UnitVM model)
+        public UnitVM? UpsertUnit(UnitVM model)
         {
             var theUser = _httpContext.HttpContext.Request.Headers["UserName"].ToString();
             UnitVM result = new();
@@ -81,6 +82,22 @@ namespace Procure.BLL.Services
                 throw new KeyNotFoundException($"Unit not found against code {model.UnitCode}");
             }
             return _mapper.Map<UnitVM>(result);
+        }
+        public IEnumerable<UnitVM> GetUnits()
+        {
+            //MethodBase methodBase =  MethodBase.GetCurrentMethod();
+            //var abbc = methodBase?.ReflectedType?.Name;
+            //var currentClassName = this.GetType().Name;
+            //var currentMethodName = MethodBase.GetCurrentMethod()?.Name;
+            //var currentMethodName2 = MethodBase.GetCurrentMethod().DeclaringType.Name;
+
+            using IDbConnection db = new SqlConnection(_connString);
+            IEnumerable<Unit> result = db.QueryAsync<Unit>("SP_Unit_GetAll", null, commandType: CommandType.StoredProcedure).Result.ToList();
+            if (result == null)
+            {
+                throw new KeyNotFoundException($"Units not found");
+            }
+            return _mapper.Map<IEnumerable<UnitVM>>(result);
         }
     }
 }
