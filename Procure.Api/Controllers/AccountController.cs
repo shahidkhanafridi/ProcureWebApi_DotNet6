@@ -9,7 +9,7 @@ namespace Procure.Api.Controllers
     {
         public AccountController(IConfiguration config, IMapper mapper) : base(config, mapper)
         {
-
+            // empty now
         }
     }
 }
